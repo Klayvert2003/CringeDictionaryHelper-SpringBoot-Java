@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edição Palavra</title>
+</head>
+<body>
+    <h1>Formulário de Edição</h1>
+    <form th:action="@{/dicionario/editar}" th:object="${palavra}" method="post">
+        <div>
+            <label for="descricao">Descrição:</label>
+            <input type="text" id="descricao" th:field="${palavra.descricao}" required>
+        </div>
+        <div>
+            <label for="significado">Significado:</label>
+            <input type="text" id="significado" th:field="${palavra.significado}" required>
+        </div>
+        <!-- Inclua um input hidden para o ID da palavra -->
+        <input type="hidden" id="id" name="id" th:value="${palavra.id}">
+        <button type="submit">Salvar</button>
+    </form>
+</body>
+</html>
